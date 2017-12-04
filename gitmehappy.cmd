@@ -1,0 +1,19 @@
+rem echo off
+git init
+git add DataT2/App.xaml
+git add DataT2/App.xaml.cs
+git add DataT2/ViewModel.cs
+git add DataT2/Converters/ConverterBase.cs
+git add DataT2/Converters/MyValueConverter.cs
+git add DataT2/App.config
+git add DataT2/MainWindow.xaml
+git add DataT2/MainWindow.xaml.cs
+git add DataT2/Properties/AssemblyInfo.cs
+git add DataT2/app.config
+git add DataT2/Properties/Settings.settings
+git add DataT2/Properties/Resources.Designer.cs
+git add DataT2/Properties/Resources.resx
+git add DataT2/Properties/Settings.Designer.cs
+git add DataT2/DataT2.csproj
+git add DataT2.sln
+git add .gitignore

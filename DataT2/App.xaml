@@ -1,0 +1,41 @@
+﻿<Application x:Class="DataT2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:DataT2"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type local:X}">
+            <DataTemplate.Resources>
+                <Storyboard x:Key="Storyboard1" x:Shared="False">
+                    <DoubleAnimation From="100" To="200" Storyboard.TargetProperty="Width" Storyboard.TargetName="{DynamicResource AnimationTarget}"/>
+                </Storyboard>
+            </DataTemplate.Resources>
+            <Border>
+                <StackPanel>
+                    <Rectangle Height="50" Width="100" Fill="Green" x:Name="rect1">
+                        <Rectangle.Resources>
+                            <s:String x:Key="AnimationTarget">rect1</s:String>
+                        </Rectangle.Resources>
+                    </Rectangle>
+                    <Rectangle Height="50" Width="100" Fill="Red" x:Name="rect2">
+                        <Rectangle.Resources>
+                            <s:String x:Key="AnimationTarget">rect2</s:String>
+                        </Rectangle.Resources>
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>
+                    <StackPanel.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                        </EventTrigger>
+                    </StackPanel.Triggers>
+
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
